@@ -813,3 +813,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2725ac66822b9643ac78f383c63059d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: {fileID: 1576667772}
+  highScore: 0
+  highscore: Highscore
