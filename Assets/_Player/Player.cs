@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     private Vector3 MoveDirection = Vector3.zero;
     private Transform playerMesh = null;
     private Animator thisAnimator = null;
+    public GameManager gm;
+    public GameObject explosion;
 
     private float moveSpeed = 0.05f;
 
@@ -52,6 +54,20 @@ public class Player : MonoBehaviour
 
         thisController.Move(MoveDirection);
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -1.5f, 1.5f), transform.position.y, transform.position.z);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag.Equals("Obstacle"))
+        {
+            gm.life();
+            Instantiate(explosion, transform.position, transform.rotation);
+        }
+        else if (other.gameObject.tag.Equals("Score"))
+        { 
+            gm.score();
+        }
+
+
     }
 
 }

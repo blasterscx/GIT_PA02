@@ -9,9 +9,10 @@ public class HUD : MonoBehaviour
     [SerializeField] private Text Txt_Score = null;
     [SerializeField] private Image Image_Lives = null;
     [SerializeField] private Text Txt_Message = null;
- 
+    public static int[] health;
     void Start()
     {
+        
         HUDManager = this;
     }
 
@@ -24,6 +25,7 @@ public class HUD : MonoBehaviour
     public void UpdateLives()
     {
         Image_Lives.rectTransform.sizeDelta = new Vector2(GameManager.Lives * 50, 30);
+        
     }
 
     public void GameOver()
